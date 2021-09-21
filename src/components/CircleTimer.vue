@@ -133,9 +133,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 100px;
+    font-size: 75px;
     font-weight: 500;
-    color: coral;
+    color: #EC7D64;
   }
 }
 
