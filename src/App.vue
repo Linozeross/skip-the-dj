@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <div class="box">
-      <h1 class="title is-2">Current DJ</h1>
+      <h1 class="title is-2">Skip-The-DJ!</h1>
+      <h1 class="title is-1 pt-2">Barleton</h1>
       <div class="columns is-vcentered">
         <div class="column">
           <div class="image is-256x256">
             <img src="https://bulma.io/images/placeholders/256x256.png" />
-            <h1 class="title is-3 pt-2">Barleton</h1>
           </div>
         </div>
         <div class="column">
@@ -27,20 +27,31 @@
         <br />
       </div>
     </div>
+    <div v-for="dj in nextDJs" :key="dj.djName">
+      <NextDJ :dj="dj"></NextDJ>
+      </div>
   </div>
 </template>
 
 <script>
 import "@/myStyle.sass";
 import "font-awesome/css/font-awesome.min.css";
-import CircleTimer from './components/CircleTimer.vue';
+import CircleTimer from "./components/CircleTimer.vue";
+import NextDJ from "./components/NextDJ.vue";
 
 export default {
-  components: { CircleTimer },
+  components: { CircleTimer, NextDJ },
   name: "App",
   data() {
     return {
       timerSeconds: 300,
+      nextDJs: [
+        {
+          djName: "SuperDJ",
+          djImg: "",
+          djQuote: "Ich mach super geile Mukke🤩",
+        },
+      ],
     };
   },
   mounted() {},
