@@ -14,8 +14,9 @@
         </div>
         <div class="column">
           <button
-            @click="timerSeconds += 30"
-            class="button is-success is-large"
+            :disabled="chargeClap"
+            @click="timerProcess"
+            class="button is-primary is-large"
             style="width: 100%; height: 100%"
           >
             + 0:30
@@ -44,6 +45,7 @@
 
 <script>
 import "@/myStyle.sass";
+import "../css/mystyles.css";
 import "font-awesome/css/font-awesome.min.css";
 import CircleTimer from "./components/CircleTimer.vue";
 import NextDJ from "./components/NextDJ.vue";
@@ -57,6 +59,8 @@ export default {
     return {
       timerSeconds: 300,
       showSignUpModal: false,
+      buttonTimeout: 3000,
+      chargeClap: false,
       nextDJs: [
         {
           djName: "SuperDJ",
@@ -68,12 +72,20 @@ export default {
   },
   mounted() {},
   computed: {},
+  methods: {
+    timerProcess() {
+      this.timerSeconds += 30;
+      this.chargeClap = true;
+      setTimeout(() => (this.chargeClap = false), this.buttonTimeout);
+    },
+  },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "DM Sans", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

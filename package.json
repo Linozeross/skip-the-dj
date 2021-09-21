@@ -1,15 +1,21 @@
 {
   "name": "skip-the-dj",
   "version": "0.1.0",
+  "main": "sass/mystyles.scss",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "css-build": "node-sass --omit-source-map-url sass/mystyles.scss css/mystyles.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
   },
   "dependencies": {
+    "bulma": "^0.9.3",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
+    "node-sass": "^6.0.1",
     "sass": "^1.40.1",
     "sass-loader": "^10.0.0",
     "vue": "^2.6.11",
