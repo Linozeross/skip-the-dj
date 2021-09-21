@@ -15,7 +15,7 @@
         <div class="column">
           <button
             @click="timerSeconds += 30"
-            class="button is-success is-large"
+            class="button is-primary is-large"
             style="width: 100%; height: 100%"
           >
             + 0:30
@@ -32,6 +32,7 @@
 
 <script>
 import "@/myStyle.sass";
+import "../css/mystyles.css";
 import "font-awesome/css/font-awesome.min.css";
 import CircleTimer from './components/CircleTimer.vue';
 
@@ -49,8 +50,9 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "DM Sans",Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

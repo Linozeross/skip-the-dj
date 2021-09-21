@@ -108,7 +108,7 @@ export default {
 
   &__path-elapsed {
     stroke-width: 10px;
-    stroke: #979797;
+    stroke: #FDEBE8;
   }
 
   &__path-remaining {
@@ -121,7 +121,7 @@ export default {
     stroke: currentColor;
 
     &.blue {
-      color: #8cacd0;
+      color: #EC7D64;
     }
   }
 
