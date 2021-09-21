@@ -14,7 +14,8 @@
         </div>
         <div class="column">
           <button
-            @click="timerSeconds += 30"
+            :disabled="chargeClap"
+            @click="timerProcess"
             class="button is-primary is-large"
             style="width: 100%; height: 100%"
           >
@@ -29,7 +30,7 @@
     </div>
     <div v-for="dj in nextDJs" :key="dj.djName">
       <NextDJ :dj="dj"></NextDJ>
-      </div>
+    </div>
   </div>
 </template>
 
@@ -46,6 +47,8 @@ export default {
   data() {
     return {
       timerSeconds: 300,
+      buttonTimeout: 3000,
+      chargeClap: false,
       nextDJs: [
         {
           djName: "SuperDJ",
@@ -57,13 +60,20 @@ export default {
   },
   mounted() {},
   computed: {},
+  methods: {
+    timerProcess() {
+      this.timerSeconds += 30;
+      this.chargeClap = true;
+      setTimeout(() => (this.chargeClap = false), this.buttonTimeout);
+    },
+  },
 };
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 #app {
-  font-family: "DM Sans",Avenir, Helvetica, Arial, sans-serif;
+  font-family: "DM Sans", Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
