@@ -22,14 +22,23 @@
           </button>
         </div>
 
-        <br />
-        <h1>{{ timer }}</h1>
+
         <br />
       </div>
     </div>
-    <div v-for="dj in nextDJs" :key="dj.djName">
-      <NextDJ :dj="dj"></NextDJ>
+    <h1 class="title is-2">Coming Up:</h1>
+    <div class="columns">
+      <div class="column is-two-thirds">
+        <div v-for="dj in nextDJs" :key="dj.djName">
+          <NextDJ :dj="dj"></NextDJ>
+        </div>
       </div>
+      <div class="column is-one-third">
+        <button @click="showSignUpModal = true" class="button is-large">👩‍🎤 Ich will jetzt mal ans DJ Pult!</button>
+      </div>
+    </div>
+    <SignUpModal v-if="showSignUpModal"></SignUpModal>
+    <AddDJ></AddDJ>
   </div>
 </template>
 
@@ -38,13 +47,16 @@ import "@/myStyle.sass";
 import "font-awesome/css/font-awesome.min.css";
 import CircleTimer from "./components/CircleTimer.vue";
 import NextDJ from "./components/NextDJ.vue";
+import AddDJ from './components/AddDJ.vue';
+import SignUpModal from './components/SignUpModal.vue'
 
 export default {
-  components: { CircleTimer, NextDJ },
+  components: { CircleTimer, NextDJ, AddDJ,SignUpModal },
   name: "App",
   data() {
     return {
       timerSeconds: 300,
+      showSignUpModal: false,
       nextDJs: [
         {
           djName: "SuperDJ",

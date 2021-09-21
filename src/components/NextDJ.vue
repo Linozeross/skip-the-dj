@@ -12,10 +12,6 @@
       <div class="column is-one-third">
         <div class="block djQuote">"{{ dj.djQuote }}"</div>
       </div>
-
-      <br />
-      <h1>{{ timer }}</h1>
-      <br />
     </div>
   </div>
 </template>
@@ -32,7 +28,7 @@ export default {
 <style scoped>
 .djQuote {
   font-family: "Grechen Fuemen", cursive;
-  font-size: 50px;
+  font-size: 30px;
   font-weight: thin;
 }
 </style>
